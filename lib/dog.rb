@@ -61,7 +61,7 @@ class Dog
   
   def self.find_or_create_by(name:, breed:)
     sql = <<-SQL
-      SELECT * FROM dogs WHERE name = ?, breed = ? LIMIT 1
+      SELECT * FROM dogs WHERE name = ? AND breed = ? LIMIT 1
     SQL
     row = DB[:conn].execute(sql, [name, breed]).first
     
